@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluador de Notas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #f4f4f9; }
+        .container { width: 100%; max-width: 400px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="number"] { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .resultado { margin-top: 20px; padding: 15px; background-color: #e2e3e5; border-radius: 4px; font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container center">
+    <h2>Evaluador de Notas</h2>
+    
+    <form method="POST">
+         <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="nota1">Nota 1:</label>
+            <input type="number" id="nota1" name="nota1" min="0" max="10" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="nota2">Nota 2:</label>
+            <input type="number" id="nota2" name="nota2" min="0" max="10" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="nota3">Nota 3:</label>
+            <input type="number" id="nota3" name="nota3" min="0" max="10" step="0.1" required>
+        </div>
+        <button type="submit">Calcular Condición</button>
+    </form>
+
+    {% if resultado %}
+        <div class="resultado">
+            {{ resultado }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

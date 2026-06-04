@@ -1,0 +1,13 @@
+on_http_request:
+  # 1. Redirigir a los usuarios a Google para que inicien sesión
+  - actions:
+    - type: oauth
+      config:
+        provider: google
+ 
+  # 2. Denegar el acceso a cualquiera que NO pertenezca al dominio autorizado o al mail específico
+
+  - expressions:
+    - "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')" # <-- "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')" utilizar para dominios el .endsWith
+    actions:
+    - type: deny
