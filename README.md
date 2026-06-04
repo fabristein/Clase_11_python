@@ -182,50 +182,7 @@ MINIO_BROWSER_REDIRECT_URL=https://your-domain.ngrok-free.dev
 
 ---
 
-## 5. Levantar los contenedores Docker
-
-```bash
-docker compose --env-file .env up --build
-```
-
-Este comando construye la imagen de la app Flask e inicia los cuatro servicios:
-
-| Servicio  | Descripción                         |
-|-----------|-------------------------------------|
-| `web`     | Aplicación Flask                    |
-| `db`      | Base de datos PostgreSQL 15         |
-| `adminer` | Gestor visual de base de datos      |
-| `minio`   | Almacenamiento de objetos (S3-like) |
-
----
-
-## 6. Verificar que los contenedores funcionan
-
-Una vez que todos los servicios están corriendo, acceder a las siguientes rutas en el navegador:
-
-| Servicio          | URL                                         |
-|-------------------|---------------------------------------------|
-| Flask (app)       | [http://localhost:5000](http://localhost:5000) |
-| Adminer (DB GUI)  | [http://localhost:8080](http://localhost:8080) |
-| MinIO Console     | [http://localhost:9001](http://localhost:9001) |
-| MinIO API         | [http://localhost:9000](http://localhost:9000) |
-
-### Credenciales de Adminer
-
-- **Sistema:** PostgreSQL
-- **Servidor:** `db`
-- **Usuario:** valor de `DB_USER` en `.env`
-- **Contraseña:** valor de `DB_PASSWORD` en `.env`
-- **Base de datos:** valor de `DB_NAME` en `.env`
-
-### Credenciales de MinIO Console
-
-- **Usuario:** valor de `MINIO_ROOT_USER` en `.env`
-- **Contraseña:** valor de `MINIO_ROOT_PASSWORD` en `.env`
-
----
-
-## 7. Exponer MinIO con Ngrok (acceso externo)
+## 5. Exponer MinIO con Ngrok (acceso externo)
 
 **Ngrok** es una herramienta que crea un túnel seguro entre internet y un puerto de tu máquina local. Te da una URL pública (con HTTPS) que redirige el tráfico a tu servicio, sin necesidad de configurar el router ni abrir puertos. Es ideal para compartir o acceder a servicios locales desde cualquier lugar.
 
@@ -343,6 +300,50 @@ docker compose --env-file .env up --build
 ```
 
 ---
+
+## 6. Levantar los contenedores Docker
+
+```bash
+docker compose --env-file .env up --build
+```
+
+Este comando construye la imagen de la app Flask e inicia los cuatro servicios:
+
+| Servicio  | Descripción                         |
+|-----------|-------------------------------------|
+| `web`     | Aplicación Flask                    |
+| `db`      | Base de datos PostgreSQL 15         |
+| `adminer` | Gestor visual de base de datos      |
+| `minio`   | Almacenamiento de objetos (S3-like) |
+
+---
+
+## 7. Verificar que los contenedores funcionan
+
+Una vez que todos los servicios están corriendo, acceder a las siguientes rutas en el navegador:
+
+| Servicio          | URL                                         |
+|-------------------|---------------------------------------------|
+| Flask (app)       | [http://localhost:5000](http://localhost:5000) |
+| Adminer (DB GUI)  | [http://localhost:8080](http://localhost:8080) |
+| MinIO Console     | [http://localhost:9001](http://localhost:9001) |
+| MinIO API         | [http://localhost:9000](http://localhost:9000) |
+
+### Credenciales de Adminer
+
+- **Sistema:** PostgreSQL
+- **Servidor:** `db`
+- **Usuario:** valor de `DB_USER` en `.env`
+- **Contraseña:** valor de `DB_PASSWORD` en `.env`
+- **Base de datos:** valor de `DB_NAME` en `.env`
+
+### Credenciales de MinIO Console
+
+- **Usuario:** valor de `MINIO_ROOT_USER` en `.env`
+- **Contraseña:** valor de `MINIO_ROOT_PASSWORD` en `.env`
+
+---
+
 
 ## 8. Detener los contenedores
 
