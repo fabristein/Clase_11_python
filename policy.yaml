@@ -8,6 +8,8 @@ on_http_request:
   # 2. Denegar el acceso a cualquiera que NO pertenezca al dominio autorizado o al mail específico
 
   - expressions:
-    - "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')" # <-- "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')" utilizar para dominios el .endsWith
+  # "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')" utilizar para dominios el .endsWith
+  # "actions.ngrok.oauth.identity.email == 'tu-email@gmail.com'" utilizar para emails específicos
+    - "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')"
     actions:
     - type: deny

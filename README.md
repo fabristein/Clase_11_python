@@ -259,7 +259,7 @@ ngrok http 9001 --url=tu-dominio-aleatorio.ngrok-free.dev
 Por ejemplo:
 
 ```bash
-ngrok http 9001 --url=tu-dominio.ngrok-free.dev
+ngrok http 9001 --url=srk-jks.ngrok-free.dev
 ```
 
 A partir de ahora el túnel siempre usará ese enlace exacto.
